@@ -18,14 +18,16 @@
 .sidebar-hidden #recommendEnd,
 .sidebar-hidden .tool-box,
 .sidebar-hidden .csdn-side-toolbar,
-.sidebar-hidden .blog-expert-recommend-box {
+.sidebar-hidden .blog-expert-recommend-box,
+.sidebar-hidden .Post-Row-Content-right {
     display: none !important;
 }
 
 /* 浮动工具栏隐藏 - 仅在.sidebar-hidden类下生效 */
 .sidebar-hidden .csdn-side-toolbar,
 .sidebar-hidden .tool-box,
-.sidebar-hidden .pulllog-box {
+.sidebar-hidden .pulllog-box,
+.sidebar-hidden .Modal-wrapper {
     display: none !important;
 }
 
