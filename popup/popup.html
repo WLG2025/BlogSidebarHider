@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客侧边栏隐藏工具</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>博客侧边栏隐藏工具</h1>
+
+        <div class="status">
+            <div class="status-item">
+                <span class="status-label">当前状态:</span>
+                <span id="status-text" class="status-value">加载中...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">目标网站:</span>
+                <span id="domain-text" class="status-value">blog.csdn.net</span>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="reset-button" class="btn btn-secondary">重置按钮位置</button>
+            <button id="clear-button" class="btn btn-danger">清除所有设置</button>
+        </div>
+
+        <div class="instructions">
+            <h3>使用说明</h3>
+            <ul>
+                <li>访问博客页面时，右上角会出现控制按钮</li>
+                <li>点击按钮切换侧边栏显示/隐藏状态</li>
+                <li>拖拽按钮可以改变位置</li>
+                <li>您的偏好设置会自动保存</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

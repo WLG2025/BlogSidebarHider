@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试页面</title>
+    <style>
+        body { margin: 0; padding: 0; }
+        .left-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        .right-sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            margin: 0 220px;
+            padding: 40px;
+            min-height: 100vh;
+            background: white;
+        }
+        .floating-toolbar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-sidebar">
+        <h3>左侧边栏</h3>
+        <p>导航菜单</p>
+        <ul>
+            <li>首页</li>
+            <li>分类</li>
+            <li>标签</li>
+            <li>归档</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>正文内容</h1>
+        <p>这是测试页面的正文内容...</p>
+        <p>插件应该能隐藏左右侧边栏和浮动工具栏。</p>
+    </div>
+
+    <div class="right-sidebar">
+        <h3>右侧边栏</h3>
+        <p>推荐文章</p>
+        <ul>
+            <li>文章1</li>
+            <li>文章2</li>
+            <li>文章3</li>
+        </ul>
+    </div>
+
+    <div class="floating-toolbar">
+        浮动工具栏
+    </div>
+
+    <script>
+        // 模拟插件功能
+        console.log('测试页面已加载');
+    </script>
+</body>
+</html>

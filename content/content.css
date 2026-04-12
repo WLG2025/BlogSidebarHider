@@ -1,0 +1,84 @@
+/* 博客侧边栏隐藏插件样式 */
+
+/* 左侧侧边栏隐藏 - 仅在.sidebar-hidden类下生效 */
+.sidebar-hidden .blog_container_aside,
+.sidebar-hidden .mainAside,
+.sidebar-hidden .aside,
+.sidebar-hidden #asideProfile,
+.sidebar-hidden #asideCategory,
+.sidebar-hidden #asideArchive,
+.sidebar-hidden #asideHotArticle,
+.sidebar-hidden #asideNewComments {
+    display: none !important;
+}
+
+/* 右侧侧边栏隐藏 - 仅在.sidebar-hidden类下生效 */
+.sidebar-hidden .recommend-right,
+.sidebar-hidden .recommend,
+.sidebar-hidden #recommendEnd,
+.sidebar-hidden .tool-box,
+.sidebar-hidden .csdn-side-toolbar,
+.sidebar-hidden .blog-expert-recommend-box {
+    display: none !important;
+}
+
+/* 浮动工具栏隐藏 - 仅在.sidebar-hidden类下生效 */
+.sidebar-hidden .csdn-side-toolbar,
+.sidebar-hidden .tool-box,
+.sidebar-hidden .pulllog-box {
+    display: none !important;
+}
+
+/* 广告相关隐藏 - 仅在.sidebar-hidden类下生效 */
+.sidebar-hidden .adsbygoogle,
+.sidebar-hidden .ad-box,
+.sidebar-hidden .spread-module {
+    display: none !important;
+}
+
+/* 浮动控制按钮样式 */
+.sidebar-toggle-button {
+    position: fixed;
+    z-index: 9999;
+
+    background: rgba(51, 51, 51, 0.9);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: grab;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    user-select: none;
+}
+
+.sidebar-toggle-button:hover {
+    background: rgba(51, 51, 51, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-toggle-button:active {
+    transform: translateY(0);
+}
+
+.sidebar-toggle-button.hidden {
+    background: rgba(74, 144, 226, 0.9);
+}
+
+.sidebar-toggle-button.hidden:hover {
+    background: rgba(74, 144, 226, 1);
+}
+
+.sidebar-toggle-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
