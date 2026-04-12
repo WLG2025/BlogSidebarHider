@@ -110,6 +110,7 @@
             if (isSidebarHidden) {
                 // 添加CSS类名以隐藏侧边栏
                 document.documentElement.classList.add(CSS_CLASS_NAME);
+                updateZhihuMaskWrapper();
             } else {
                 // 移除CSS类名以显示侧边栏
                 document.documentElement.classList.remove(CSS_CLASS_NAME);
@@ -117,6 +118,60 @@
         } catch (error) {
             console.error('更新侧边栏可见性失败:', error);
         }
+    }
+
+    function updateZhihuMaskWrapper() {
+        if (!window.location.href.includes('zhuanlan.zhihu.com')) {
+            return;
+        }
+        const maskWrapper = document.querySelector('.Modal-wrapper');
+        if (maskWrapper) {
+            console.log(maskWrapper);
+            // 尝试完全移除元素，而不仅仅是隐藏
+            maskWrapper.style.display = 'none';
+            maskWrapper.style.visibility = 'hidden';
+            maskWrapper.style.pointerEvents = 'none';
+            maskWrapper.style.position = 'fixed';
+            maskWrapper.style.left = '-9999px';
+            maskWrapper.style.top = '-9999px';
+        }
+
+        // 重要：移除可能导致滚动受限的 body 类或样式
+        const body = document.body;
+        // 移除可能阻止滚动的 body 类（常见于模态框）
+        const classesToRemove = [
+            'Modal--fullScreen', // 知乎全屏模态框类
+            'ReactModal__Body--open', // React 模态框常用类
+            'modal-open', // Bootstrap 模态框类
+            'overflow-hidden', // 通用防滚动类
+            'no-scroll',
+            'noscroll',
+            'body-modal-open'
+        ];
+        classesToRemove.forEach(className => {
+            if (body.classList.contains(className)) {
+                body.classList.remove(className);
+            }
+        });
+        // 重置 body 样式（如果有被覆盖的样式）
+        if (body.style.overflow === 'hidden' || body.style.overflow === 'clip') {
+            body.style.overflow = '';
+        }
+
+        // 同样检查 html 元素
+        const html = document.documentElement;
+        if (html.style.overflow === 'hidden' || html.style.overflow === 'clip') {
+            html.style.overflow = '';
+        }
+        // 移除可能存在的全局事件监听器
+        // 移除键盘事件监听（ESC 关闭等）
+        // 辅助函数：移除特定的事件监听器
+        function preventModalClose(event) {
+            // 这个函数本身不需要实现，因为我们是要移除监听器
+        }
+        document.removeEventListener('keydown', preventModalClose);
+
+        console.log('Modal wrapper processed and scroll restrictions removed');
     }
 
     /**
