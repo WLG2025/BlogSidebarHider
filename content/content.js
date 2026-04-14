@@ -121,7 +121,7 @@
     }
 
     function updateZhihuMaskWrapper() {
-        if (!window.location.href.includes('zhuanlan.zhihu.com')) {
+        if (!window.location.href.includes('zhihu.com')) {
             return;
         }
         const maskWrapper = document.querySelector('.Modal-wrapper');

@@ -19,6 +19,7 @@
 .sidebar-hidden .tool-box,
 .sidebar-hidden .csdn-side-toolbar,
 .sidebar-hidden .blog-expert-recommend-box,
+.sidebar-hidden .Question-sideColumn,
 .sidebar-hidden .Post-Row-Content-right {
     display: none !important;
 }
