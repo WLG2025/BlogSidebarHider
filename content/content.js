@@ -110,7 +110,7 @@
             if (isSidebarHidden) {
                 // 添加CSS类名以隐藏侧边栏
                 document.documentElement.classList.add(CSS_CLASS_NAME);
-                updateZhihuMaskWrapper();
+                updateZhihuMask();
             } else {
                 // 移除CSS类名以显示侧边栏
                 document.documentElement.classList.remove(CSS_CLASS_NAME);
@@ -120,14 +120,17 @@
         }
     }
 
+    function updateZhihuMask() {
+        updateZhihuMaskWrapper();
+        hideLiuKanshan();
+    }
+
     function updateZhihuMaskWrapper() {
         if (!window.location.href.includes('zhihu.com')) {
             return;
         }
         const maskWrapper = document.querySelector('.Modal-wrapper');
         if (maskWrapper) {
-            console.log(maskWrapper);
-            // 尝试完全移除元素，而不仅仅是隐藏
             maskWrapper.style.display = 'none';
             maskWrapper.style.visibility = 'hidden';
             maskWrapper.style.pointerEvents = 'none';
@@ -170,8 +173,34 @@
             // 这个函数本身不需要实现，因为我们是要移除监听器
         }
         document.removeEventListener('keydown', preventModalClose);
+    }
 
-        console.log('Modal wrapper processed and scroll restrictions removed');
+    function hideLiuKanshan() {
+        const imgs = document.querySelectorAll('img');
+        if (!imgs.length) return;
+
+        for (const img of imgs) {
+            if (!img.src.startsWith('https://static.zhihu.com/heifetz/assets/liukanshan')) continue;
+
+            // 隐藏图片及其后续兄弟元素
+            const elementsToHide = [img];
+            let sibling = img.nextSibling;
+            for (let i = 0; i < 3 && sibling; i++) {
+                elementsToHide.push(sibling);
+                sibling = sibling.nextSibling;
+            }
+
+            elementsToHide.forEach(el => el.style.display = 'none');
+
+            // 隐藏父元素
+            if (img.parentNode) {
+                img.parentNode.style.display = 'none';
+                if (img.parentNode.parentNode) {
+                    img.parentNode.parentNode.style.display = 'none';
+                }
+            }
+            break; // 只处理第一个匹配的图片
+        }
     }
 
     /**
