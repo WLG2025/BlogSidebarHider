@@ -8,7 +8,8 @@
 .sidebar-hidden #asideCategory,
 .sidebar-hidden #asideArchive,
 .sidebar-hidden #asideHotArticle,
-.sidebar-hidden #asideNewComments {
+.sidebar-hidden #asideNewComments,
+.sidebar-hidden .article-suspended-panel {
     display: none !important;
 }
 
@@ -20,7 +21,10 @@
 .sidebar-hidden .csdn-side-toolbar,
 .sidebar-hidden .blog-expert-recommend-box,
 .sidebar-hidden .Question-sideColumn,
-.sidebar-hidden .Post-Row-Content-right {
+.sidebar-hidden .Post-Row-Content-right,
+.sidebar-hidden #sidebar-container,
+.sidebar-hidden .suspension-panel,
+.sidebar-hidden .bottom-login-guide {
     display: none !important;
 }
 
@@ -39,10 +43,19 @@
     display: none !important;
 }
 
+/* 保护浮动控制按钮不被隐藏 - 提高优先级 */
+#sidebar-toggle-button,
+button#sidebar-toggle-button,
+.sidebar-toggle-button {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
 /* 浮动控制按钮样式 */
 .sidebar-toggle-button {
     position: fixed;
-    z-index: 9999;
+    z-index: 999999; /* 提高z-index确保在最上层 */
 
     background: rgba(51, 51, 51, 0.9);
     color: white;
